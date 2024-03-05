@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <H1>London and New York City</H1>
+        <link rel="stylesheet" href="LDN_NYC_app.css">
+    </head>
+    <body>
+        <section class="weatherSection">
+            <h2>London Weather</h2>
+            <div class="weatherWidgetLondon"></div>
+        </section>
+    
+        <section class="weatherSection">
+            <h2>New York City Weather</h2>
+            <div class="weatherWidgetNewYork"></div>
+            <div class="mapSection">
+                <div id="viewDiv"></div>
+            </div>
+        </section>
+        <script>
+            window.weatherWidgetConfig = window.weatherWidgetConfig || [];
+    
+            // Weather widget configuration for London
+            window.weatherWidgetConfig.push({
+                selector: ".weatherWidgetLondon",
+                apiKey: "84AAH7ENBA8DZMWGPEVWR67MT", // Sign up for your personal key
+                location: "London, UK", // Enter the address for London
+                unitGroup: "metric", // "us" or "metric"
+                forecastDays: 5, // how many days forecast to show
+                title: "London, UK", // optional title to show
+                showTitle: true,
+                showConditions: true
+            });
+    
+            // Weather widget configuration for New York
+            window.weatherWidgetConfig.push({
+                selector: ".weatherWidgetNewYork",
+                apiKey: "84AAH7ENBA8DZMWGPEVWR67MT", // Same API key as for London
+                location: "New York, NY, USA", // Enter the address for New York
+                unitGroup: "metric", // "us" or "metric"
+                forecastDays: 5, // how many days forecast to show
+                title: "New York, NY, USA", // optional title to show
+                showTitle: true,
+                showConditions: true
+            });
+    
+            (function () {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://www.visualcrossing.com/widgets/forecast-simple/weather-forecast-widget-simple.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+
+
+
+        <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css" />
+        <script src="https://js.arcgis.com/4.29/"></script>
+    
+        <script>
+          require(["esri/Map", "esri/views/MapView"], (Map, MapView) => {
+            const map = new Map({
+              basemap: "topo-vector"
+            });
+    
+            const view = new MapView({
+              container: "viewDiv",
+              map: map,
+              zoom: 12,
+              center: [-73.935242,40.73] // longitude, latitude
+            });
+          });
+        </script>
+
+    </body>
+
+</html>
