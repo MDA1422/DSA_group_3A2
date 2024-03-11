@@ -1,8 +1,8 @@
-// this code sets up the table structures
-// i still need to add foreign key constraints in phpmyadmin to complete
+// the below code sets up the table structures and foreign key constraints
+// currently working on table data 
 
 CREATE TABLE `city` (
-  `city_id` int,
+  `city_id` int NOT NULL,
   `name` varchar(20),
   `country` varchar(20),
   `description` varchar(200),
@@ -11,12 +11,11 @@ CREATE TABLE `city` (
   `population` int(9),
   `gdp` int(10),
   `crime_rate` decimal(10,2),
-  PRIMARY KEY (`city_id`),
-  KEY `Key` (`name`, `country`, `description`, `lat`, `longitude`, `population`, `gdp`, `crime_rate`)
+  PRIMARY KEY (`city_id`)
 );
 
 CREATE TABLE `images` (
-  `image_id` int,
+  `image_id` int NOT NULL,
   `title` varchar(20),
   `description` varchar(250),
   `wp_link` varchar(250),
@@ -25,19 +24,17 @@ CREATE TABLE `images` (
   `orientation` varchar(15),
   `city_id` int,
   PRIMARY KEY (`image_id`),
-  FOREIGN KEY (`city_id`) REFERENCES `city`(`city_id`),
-  KEY `Key` (`title`, `description`, `wp_link`, `height`, `width`, `orientation`)
+  FOREIGN KEY (`city_id`) REFERENCES `city`(`city_id`)
 );
 
 CREATE TABLE `cat` (
-  `cat_id` int,
+  `cat_id` int NOT NULL,
   `name` varchar(20),
-  PRIMARY KEY (`cat_id`),
-  KEY `Key` (`name`)
+  PRIMARY KEY (`cat_id`)
 );
 
 CREATE TABLE `poi` (
-  `poi_id` int,
+  `poi_id` int NOT NULL,
   `name` varchar(20),
   `lat` varchar(12),
   `longitude` varchar(13),
@@ -47,8 +44,7 @@ CREATE TABLE `poi` (
   `city_id` int,
   PRIMARY KEY (`poi_id`),
   FOREIGN KEY (`poi_id`) REFERENCES `cat`(`cat_id`),
-  FOREIGN KEY (`city_id`) REFERENCES `city`(`city_id`),
-  KEY `Key` (`name`, `lat`, `longitude`, `description`, `tags`, `wp_link`)
+  FOREIGN KEY (`city_id`) REFERENCES `city`(`city_id`)
 );
 
 CREATE TABLE `poi_images` (
@@ -57,5 +53,4 @@ CREATE TABLE `poi_images` (
   FOREIGN KEY (`image_id`) REFERENCES `images`(`image_id`),
   FOREIGN KEY (`poi_id`) REFERENCES `poi`(`poi_id`)
 );
-
 
