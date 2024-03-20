@@ -1,0 +1,43 @@
+-- Data in the `city` table
+INSERT INTO city (city_id, name, country, description, lat, longitude, population, gdp, crime_rate) VALUES
+(1, 'London', 'United Kingdom', 'Capital of England', '51.5074', '-0.1278', 8982000, 565000000000, 83.4),
+(2, 'New York', 'United States', 'Most populous city in the United States', '40.7128', '-74.0060', 8419000, 1600000000000, 61.8);
+
+-- Data into the `images` table for both cities
+-- Images for London
+INSERT INTO images (image_id, title, description, wp_link, height, width, orientation, city_id) VALUES
+(1, 'Big Ben', 'The iconic clock tower', 'https://en.wikipedia.org/wiki/Big_Ben', 1024, 768, 'portrait', 1),
+(2, 'London Eye', 'A major feature of London''s skyline', 'https://en.wikipedia.org/wiki/London_Eye', 1024, 768, 'landscape', 1);
+
+-- Images for New York
+INSERT INTO images (image_id, title, description, wp_link, height, width, orientation, city_id) VALUES
+(3, 'Statue of Liberty', 'A symbol of freedom', 'https://en.wikipedia.org/wiki/Statue_of_Liberty', 1024, 768, 'portrait', 2),
+(4, 'Times Square', 'Famous for its many Broadway theatres', 'https://en.wikipedia.org/wiki/Times_Square', 1024, 768, 'landscape', 2);
+
+-- Data into the `poi` (points of interest) table for both cities
+-- Points of Interest for London
+INSERT INTO poi (poi_id, name, lat, longitude, description, tags, wp_link, city_id) VALUES
+(1, 'Big Ben', '51.5007', '-0.1246', 'Big Ben is the nickname for the Great Bell of the clock at the north end of the Palace of Westminster.', 'landmark, clocktower', 'https://en.wikipedia.org/wiki/Big_Ben', 1),
+(2, 'London Eye', '51.5033', '-0.1196', 'The London Eye is a cantilevered observation wheel on the South Bank of the River Thames.', 'observation wheel, landmark', 'https://en.wikipedia.org/wiki/London_Eye', 1);
+
+-- Points of Interest for New York
+INSERT INTO poi (poi_id, name, lat, longitude, description, tags, wp_link, city_id) VALUES
+(3, 'Statue of Liberty', '40.6892', '-74.0445', 'The Statue of Liberty is a colossal neoclassical sculpture on Liberty Island.', 'statue, landmark', 'https://en.wikipedia.org/wiki/Statue_of_Liberty', 2),
+(4, 'Times Square', '40.7580', '-73.9855', 'Times Square is a major commercial intersection, tourist destination, entertainment center, and neighborhood.', 'commercial, entertainment', 'https://en.wikipedia.org/wiki/Times_Square', 2);
+
+-- Insert data into the `poi_images` table
+INSERT INTO poi_images (image_id, poi_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4);
+
+-- Data in the(categories) table
+INSERT INTO cat (cat_id, name) VALUES
+(1, 'Landmark'),
+(2, 'Entertainment');
+
+INSERT INTO poi_cat (poi_id, cat_id) VALUES
+(1, 1),
+(2, 1),
+(4, 2);
