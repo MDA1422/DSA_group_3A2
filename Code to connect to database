@@ -1,0 +1,67 @@
+<?php
+// Establish a connection to the database
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$dbname = 'city';
+$conn = new mysqli($host, $user, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Arrays to hold SQL queries for each table
+$tables = [
+    'city' => 'SELECT * FROM city',
+    'images' => 'SELECT * FROM images',
+    'poi' => 'SELECT * FROM poi',
+    'poi_images' => 'SELECT * FROM poi_images',
+    'cat' => 'SELECT * FROM cat',
+    'poi_cat' => 'SELECT * FROM poi_cat'
+];
+
+// Loop through each table and display its contents
+foreach ($tables as $tableName => $sql) {
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // Display the table name
+        echo "<h2>Contents of {$tableName} Table:</h2>";
+        echo "<table border='1'>";
+        
+        // Fetch the first row to get column names
+        $firstRow = $result->fetch_assoc();
+        if ($firstRow) {
+            // Table header
+            echo "<tr>";
+            foreach ($firstRow as $columnName => $value) {
+                echo "<th>{$columnName}</th>";
+            }
+            echo "</tr>";
+
+            // Table body
+            // Display the first row
+            echo "<tr>";
+            foreach ($firstRow as $value) {
+                echo "<td>" . htmlspecialchars($value) . "</td>";
+            }
+            echo "</tr>";
+
+            // Display the rest of the rows
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                foreach ($row as $value) {
+                    echo "<td>" . htmlspecialchars($value) . "</td>";
+                }
+                echo "</tr>";
+            }
+        }
+        echo "</table><br>";
+    } else {
+        echo "<p>No results found in {$tableName}.</p>";
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
