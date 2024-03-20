@@ -7,6 +7,8 @@
         <section class="weatherSection">
             <h2>London Weather</h2>
             <div class="weatherWidgetLondon"></div>
+            <div class="mapSection1">
+                <div id="viewDiv1"></div>
         </section>
     
         <section class="weatherSection">
@@ -70,6 +72,49 @@
             });
           });
         </script>
+            <script src="https://js.arcgis.com/4.29/"></script>
+        
+            <style>
+              html,
+              body,
+              #viewDiv1 {
+                padding: 0;
+                margin: 0;
+                height: 100%;
+                width: 100%;
+              }
+            </style>
+        
+            <script>
+              require([
+                "esri/Map",
+                "esri/views/MapView",
+                "esri/widgets/BasemapToggle"
+              ], (Map, MapView, BasemapToggle) => {
+                // Create the Map with an initial basemap
+                const map = new Map({
+                  basemap: "topo-vector"
+                });
+        
+                // Create the MapView and reference the Map in the instance
+                const view = new MapView({
+                  container: "viewDiv1",
+                  map: map,
+                  center: [0.1276,51.5072],
+                  zoom: 10
+                });
+        
+                // 1 - Create the widget
+                const toggle = new BasemapToggle({
+                  // 2 - Set properties
+                  view: view, // view that provides access to the map's 'topo-vector' basemap
+                  nextBasemap: "hybrid" // allows for toggling to the 'hybrid' basemap
+                });
+        
+                // Add widget to the top right corner of the view
+                view.ui.add(toggle, "top-right");
+              });
+            </script>
 
     </body>
 

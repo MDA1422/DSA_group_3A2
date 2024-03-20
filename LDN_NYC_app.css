@@ -19,6 +19,16 @@ h1 {
     display: inline-block; /* Display sections inline to place them side by side */
 }
 
+.mapSection1 {
+    width: calc(50% - 20px); /* Each section occupies half of the container's width minus padding */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    padding: 20px; /* Add padding for spacing inside the sections */
+    border: 1px solid #000000; /* Add a border around each section */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    margin-right: 20px; /* Add right margin to create space between sections */
+    display: inline-block; /* Display sections inline to place them side by side */
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -33,13 +43,26 @@ h1 {
     border-radius: 5px;
 }
 
+.mapSection1 {
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 /* Center h2 within each section */
-.weatherSection h2, .mapSection h2 {
-    text-align: center;
+.weatherSection h2, .mapSection h2, .mapSection1 h2 {
+    text-align: center; /* Center h2 text */
 }
 
 /* Ensure the map takes up the full width of its container */
 #viewDiv {
+    width: 100%;
+    height: 400px; /* Set height as needed */
+}
+
+#viewDiv1 {
     width: 100%;
     height: 400px; /* Set height as needed */
 }
