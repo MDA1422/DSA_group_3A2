@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>London and New York City</title>
-    <link rel="stylesheet" href="LDN_NYC_app (copy).css">
+    <link rel="stylesheet" href="LDN_NYC_app.css">
     <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
 </head>
 <body>
