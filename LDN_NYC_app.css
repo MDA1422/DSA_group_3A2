@@ -1,68 +1,84 @@
-body {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    text-align: center; /* Center text within the body */
-}
-
-h1 {
-    margin-bottom: 20px; /* Add some space below the <h1> */
-}
-
-.weatherSection, .mapSection {
-    width: calc(50% - 20px); /* Each section occupies half of the container's width minus padding */
-    box-sizing: border-box; /* Include padding and border in width calculation */
-    padding: 20px; /* Add padding for spacing inside the sections */
-    border: 1px solid #000000; /* Add a border around each section */
-    border-radius: 5px; /* Add border radius for rounded corners */
-    margin-right: 20px; /* Add right margin to create space between sections */
-    display: inline-block; /* Display sections inline to place them side by side */
-}
-
-.mapSection1 {
-    width: calc(50% - 20px); /* Each section occupies half of the container's width minus padding */
-    box-sizing: border-box; /* Include padding and border in width calculation */
-    padding: 20px; /* Add padding for spacing inside the sections */
-    border: 1px solid #000000; /* Add a border around each section */
-    border-radius: 5px; /* Add border radius for rounded corners */
-    margin-right: 20px; /* Add right margin to create space between sections */
-    display: inline-block; /* Display sections inline to place them side by side */
-}
-
 .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 20px;
 }
 
-.weatherSection, .mapSection {
-    width: 80%;
-    margin-bottom: 20px;
+td {
+color: rgb(0, 0, 0);
+}
+
+table {
+    width: 70%; 
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-decoration-color: aliceblue;
+}
+
+
+th, h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    background: #666;
+    color: #FFF;
+    padding: 2px 6px;
+    border-collapse: separate;
+    border: 1px solid #000;
+    font-family: "Lucida Console", "Courier New", monospace;
+    
+
+}
+
+
+
+label{
+    color: rgb(0, 0, 0);
+}
+
+
+
+.hero-wrapper {
+  clear: both;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+  font: 22px helvetica, sans-serif;
+  color: white;
+}
+
+.hero {
+    background-image: url(UK-US_Flag.gif);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    background-size: 30% auto;
+  }
+
+.weatherAndMap {
+    width: 45%; /* Adjust the width as needed */
+    border: 1px solid #000000;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.mapSection1 {
-    width: 80%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
-/* Center h2 within each section */
-.weatherSection h2, .mapSection h2, .mapSection1 h2 {
-    text-align: center; /* Center h2 text */
+.weatherSection h2,
+.mapSection h2 {
+    margin-top: 0;
 }
 
-/* Ensure the map takes up the full width of its container */
-#viewDiv {
+.weatherWidgetLondon,
+.weatherWidgetNewYork {
+    margin-bottom: 20px;
+}
+
+.map {
     width: 100%;
-    height: 400px; /* Set height as needed */
-}
-
-#viewDiv1 {
-    width: 100%;
-    height: 400px; /* Set height as needed */
+    height: 300px; /* Adjust the height as needed */
 }
