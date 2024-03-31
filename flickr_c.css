@@ -1,0 +1,20 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.image-container {
+    margin: 10px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-sizing: border-box; /* Add this line */
+}
+
+.flickr-image {
+    display: block;
+    width: 100%; /* Adjust width if needed */
+    height: auto; /* Allow height to adjust proportionally */
+    object-fit: cover;
+}

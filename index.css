@@ -1,0 +1,154 @@
+.container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 20px;
+}
+
+.comments {
+    padding-top: 150px;
+    margin-top: 100x;
+    margin-bottom: 20px;
+}
+
+.links_to_galleries{
+    margin-bottom: 150px;
+}
+
+h3 {
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+}
+p{
+    color: #FFF;
+}
+
+.body {
+    background-color: #222; /* Dark color code */
+  }
+  
+
+.database {
+    margin-top: 50px;
+    padding-top: 150px;
+}
+
+.box {
+width: 45%;
+border: 1px solid #000000;
+padding: 20px;
+box-sizing: border-box;
+margin-bottom: 20px;
+}
+
+.box {
+width: 50%;
+float: left;
+border: 1px solid #ccc;
+padding: 20px;
+box-sizing: border-box;
+margin-bottom: 20px;
+}
+
+.box h3 {
+margin-top: 0;
+}
+
+.box p {
+margin-bottom: 10px;
+}
+
+.box .button {
+display: inline-block;
+padding: 10px 20px;
+background-color: #677079;
+color: #fff;
+text-decoration: none;
+border: none;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+}
+
+.box .button:hover {
+background-color: #617183;
+}
+
+
+td {
+color: rgb(255, 255, 255);
+}
+
+table {
+    width: 70%; 
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-decoration-color: aliceblue;
+}
+
+
+th, h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    background: #666;
+    color: #FFF;
+    padding: 2px 6px;
+    border-collapse: separate;
+    border: 1px solid #a30000;
+    font-family: "Lucida Console", "Courier New", monospace;
+    
+
+}
+
+
+
+label{
+    color: rgb(99, 88, 88);
+}
+
+
+
+.hero-wrapper {
+  clear: both;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+  font: 22px helvetica, sans-serif;
+  color: white;
+}
+
+.hero {
+    background-image: url(misc/UK-US_Flag.gif);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    background-size: 30% auto;
+  }
+
+.weatherAndMap{
+    width: 45%; /* Adjust the width as needed */
+    border: 1px solid #ffffff;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.weatherSection h2,
+.mapSection h2 {
+    margin-top: 0;
+}
+
+.weatherWidgetLondon,
+.weatherWidgetNewYork {
+    margin-bottom: 20px;
+}
+
+.map {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+}
