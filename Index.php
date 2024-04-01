@@ -126,12 +126,23 @@
 
 
 <script>
+
+    // Fetch the configuration JSON file asynchronously
+async function fetchConfig() {
+    const response = await fetch('config.json');
+    return await response.json();
+}
+
+// Function to configure weather widgets based on the fetched configuration
+async function configureWeatherWidgets() {
+    // Fetch the configuration JSON
+    const config = await fetchConfig();
     window.weatherWidgetConfig = window.weatherWidgetConfig || [];
 
     // Weather widget configuration for London
     window.weatherWidgetConfig.push({
         selector: ".weatherWidgetLondon",
-        apiKey: "84AAH7ENBA8DZMWGPEVWR67MT", // Sign up for your personal key
+        apiKey: config.visualCrossingWeather.apiKey, // Sign up for your personal key
         location: "London, UK", // Enter the address for London
         unitGroup: "metric", // "us" or "metric"
         forecastDays: 5, // how many days forecast to show
@@ -143,7 +154,7 @@
     // Weather widget configuration for New York
     window.weatherWidgetConfig.push({
         selector: ".weatherWidgetNewYork",
-        apiKey: "84AAH7ENBA8DZMWGPEVWR67MT", // Same API key as for London
+        apiKey: config.visualCrossingWeather.apiKey, // Same API key as for London
         location: "New York, NY, USA", // Enter the address for New York
         unitGroup: "metric", // "us" or "metric"
         forecastDays: 5, // how many days forecast to show
@@ -158,6 +169,9 @@
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
+}
+
+configureWeatherWidgets();
 </script>
 <div class='comments'>
     <h2 style="margin-top: 200px;">Post a Comment</h2>

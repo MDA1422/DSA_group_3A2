@@ -15,6 +15,12 @@
 		"username": "root",
 		"password": "",
 		"dbname": "DSA_Group_3A02"
+	  },
+	  "visualCrossingWeather": {
+		"apiKey": "84AAH7ENBA8DZMWGPEVWR67MT"
+	  },
+	  "Esri_ARCGis_maps": {
+		"apiKey": ""
 	  }
   }
   
