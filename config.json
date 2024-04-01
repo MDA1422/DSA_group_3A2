@@ -1,0 +1,21 @@
+{
+	"london": {
+	  "containerId": "viewDivLondon",
+	  "centerCoords": [0.1276, 51.5072],
+	  "basemapType": "streets-navigation-vector"
+	},
+	"newYork": {
+	  "containerId": "viewDivNewYork",
+	  "centerCoords": [-73.935242, 40.73],
+	  "basemapType": "streets-navigation-vector"
+	},
+	"database": {
+		"host": "localhost",
+		"port": 3307,
+		"username": "root",
+		"password": "",
+		"dbname": "DSA_Group_3A02"
+	  }
+  }
+  
+  

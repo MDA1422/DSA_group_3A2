@@ -55,7 +55,15 @@
 
 <script src="https://js.arcgis.com/4.29/"></script>
 <script>
-    require([
+    // Function to fetch JSON data from config.json file
+    async function fetchConfig() {
+        const response = await fetch('config.json');
+        return await response.json();
+    }
+
+    // Call fetchConfig function to get configuration data
+    fetchConfig().then(config => {
+        require([
         "esri/Map",
         "esri/views/MapView"
     ], (Map, MapView) => {
@@ -103,11 +111,13 @@
             return view;
         }
 
-        // Create map and view for London
-        createMapAndViewById("viewDivLondon", [0.1276, 51.5072], "topo-vector");
+                   // Create map and view for London using config data
+                   createMapAndViewById(config.london.containerId, config.london.centerCoords, config.london.basemapType);
 
-        // Create map and view for New York
-        createMapAndViewById("viewDivNewYork", [-73.935242, 40.73], "topo-vector");
+                    // Create map and view for New York using config data
+                    createMapAndViewById(config.newYork.containerId, config.newYork.centerCoords, config.newYork.basemapType);
+                    });
+
     });
 </script>
 
@@ -159,15 +169,25 @@
 
     <h2>Comments</h2>
     <?php
-$host = 'localhost:3307';
-$user = 'root';
-$password = '';
-$dbname = 'DSA_Group_3A02';
-$conn = new mysqli($host, $user, $password, $dbname);
+// Load configuration from JSON file
+$configFile = 'config.json';
+$config = json_decode(file_get_contents($configFile), true);
+
+// Extract database details
+$dbHost = $config['database']['host'];
+$dbPort = $config['database']['port'];
+$dbUsername = $config['database']['username'];
+$dbPassword = $config['database']['password'];
+$dbName = $config['database']['dbname'];
+
+// Create database connection
+$conn = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
 // Check connection
 if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
+} else {
+    echo "Connected successfully";
 }
 
 // Check if the comment form has been submitted
