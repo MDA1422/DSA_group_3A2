@@ -245,6 +245,44 @@ $result = $conn->query("SELECT username, comment, posted_at FROM comments ORDER 
     ?>
 </div>
 
+
+<div class="rss-feed">
+    <h2>RSS Feed: Data About London and New York City</h2>
+    
+    <?php
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+        // URL of the RSS feed
+        $rssFeedUrl = 'http://localhost:81/DSAy2/DSA_group_3A2/rss_feed.php';
+        
+        // Fetch RSS feed
+        $rss = simplexml_load_file($rssFeedUrl);
+        
+        // Check if RSS feed was loaded successfully
+        if ($rss) {
+            // Loop through each item in the RSS feed and display it
+            foreach ($rss->channel->item as $item) {
+                $title = $item->title;
+                $link = $item->link;
+                $description = $item->description;
+                $pubDate = $item->pubDate;
+                
+                // Output HTML for feed item
+                echo '<div class="feed-item">';
+                echo '<h3><a href="' . $link . '">' . $title . '</a></h3>';
+                echo '<p class="pub-date">' . $pubDate . '</p>';
+                echo '<p class="description">' . $description . '</p>';
+                echo '</div>';
+            }
+        } else {
+            // Display error message if RSS feed couldn't be loaded
+            echo '<p>Error loading RSS feed</p>';
+        }
+    ?>
+</div>
+
+
+
 <div class="database">
     <h2>Data about London and NYC</h2>
     <?php
