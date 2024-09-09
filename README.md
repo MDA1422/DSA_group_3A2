@@ -1,1 +1,3 @@
+Welcome to the DSA Group 3A2 project! This repository features a PHP-based implementation developed as part of our module coursework, focusing on web 3-tier architecture and basic APIs. Our project centers around the twin cities of London and New York, showcasing a dynamic webpage that displays essential information such as weather forecasts, places of interest, and interactive maps. This project aims to provide a practical demonstration of integrating various APIs within a structured web application, offering a comprehensive view of how these two iconic cities compare across key parameters.
+
 ![](https://github.com/MDA1422/DSA_group_3A2/blob/main/misc/UK-US_Flag.gif)
